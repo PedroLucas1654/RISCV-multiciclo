@@ -157,7 +157,7 @@ begin
                     when "0110011" =>
                         proximo_estado <= R_EXEC;
 
-                    -- ADDI
+                    -- ADDI, XORI, ORI e ANDI
                     when "0010011" =>
                         proximo_estado <= ADDI_EXEC;
 
@@ -281,13 +281,13 @@ begin
 
 
             ------------------------------------------------
-            -- EXECUÇÃO ADDI
+            -- EXECUÇÃO COM IMEDIATO
             ------------------------------------------------
             when ADDI_EXEC =>
 
                 ALUSrcA <= "01";
                 ALUSrcB <= "10";
-                ALUOp   <= "00";
+                ALUOp   <= "11";
 
                 ALUOutWrite <= '1';
 
@@ -295,7 +295,7 @@ begin
 
 
             ------------------------------------------------
-            -- WRITE BACK ADDI
+            -- WRITE BACK COM IMEDIATO
             ------------------------------------------------
             when ADDI_WB =>
 

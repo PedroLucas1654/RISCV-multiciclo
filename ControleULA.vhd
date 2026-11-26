@@ -83,6 +83,27 @@ begin
 
                 end case;
 
+            -- Instrucoes com imediato
+            when "11" =>
+                case funct3 is
+
+                    when "000" =>
+                        opcode <= "0000"; -- ADDI
+
+                    when "100" =>
+                        opcode <= "0100"; -- XORI
+
+                    when "110" =>
+                        opcode <= "0011"; -- ORI
+
+                    when "111" =>
+                        opcode <= "0010"; -- ANDI
+
+                    when others =>
+                        opcode <= "0000";
+
+                end case;
+
             when others =>
                 opcode <= "0000";
 
